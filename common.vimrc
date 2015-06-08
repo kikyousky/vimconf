@@ -4,21 +4,6 @@ filetype plugin indent on
 
 set tags=tags;/
 
-"ctrlsf
-"Input :CtrlSF in command line for you, just a handy alias.
-nmap     <C-F>f <Plug>CtrlSFPrompt
-"Input :CtrlSF foo in command line where foo is the current visual selected
-"word, waiting for further input.
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-"Similar to above, but execute it for you.
-vmap     <C-F>F <Plug>CtrlSFVwordExec
-"Input :CtrlSF foo in command line where foo is the word under cursor.
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-"Input :CtrlSF foo in command line where foo is the last search pattern of vim.
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-let g:ctrlsf_position = 'right'
-
 syntax on
 set nocompatible
 set modelines=0
@@ -87,9 +72,6 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-"auto save when lost focus
-"au FocusLost * :wa
-
 "open vimrc file
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
@@ -104,19 +86,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"auto reload $VIMRC
-"autocmd! BufWritePost $MYVIMRC source %
-
-"au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
 "nerdtree
 nnoremap <leader>f :NERDTree<cr>
 
 "scratch
 nnoremap <leader>s :Scratch<cr>
 
-"zen-coding
-let g:user_zen_expandabbr_key = '<c-e>'
 "supertab
 "let g:SuperTabMappingForward = '<c-n>'
 "let g:SuperTabMappingBackward = '<c-p>'
@@ -129,15 +104,28 @@ augroup filetypedetect
     au BufNewFile,BufRead *.nsh setf nsis 
 augroup END 
 
-let g:fullscreen_colorscheme = "iawriter"
-let g:fullscreen_font = "Cousine:h14"
-let g:normal_colorscheme = "codeschool"
-let g:normal_font="Inconsolata:h14"
-
 function! JavaScriptFold()
 	setl foldmethod=syntax
 	setl foldlevelstart=1
 	syn region foldBraces start=/;(function($){/ end=/})(jQuery)/ transparent fold keepend extend
 endfunction
 au FileType javascript call JavaScriptFold()
+
+"ctrlsf
+"Input :CtrlSF in command line for you, just a handy alias.
+nmap     <C-F>f <Plug>CtrlSFPrompt
+"Input :CtrlSF foo in command line where foo is the current visual selected
+"word, waiting for further input.
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+"Similar to above, but execute it for you.
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+"Input :CtrlSF foo in command line where foo is the word under cursor.
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+"Input :CtrlSF foo in command line where foo is the last search pattern of vim.
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+let g:ctrlsf_position = 'right'
+
+"emmet
+let g:user_emmet_expandabbr_key = '<c-e>'
 
