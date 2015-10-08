@@ -187,11 +187,11 @@ syn match javaScriptLogicSymbols "\(&&\)\|\(||\)"
 "}}}
 " JavaScriptFold Function {{{
 
-function! JavaScriptFold()
-	setl foldmethod=syntax
-	setl foldlevelstart=1
-	syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-endfunction
+"function! JavaScriptFold()
+"	setl foldmethod=syntax
+"	setl foldlevelstart=1
+"	syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+"endfunction
 
 " }}}
 " Highlight links {{{

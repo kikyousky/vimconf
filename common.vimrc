@@ -4,7 +4,6 @@ filetype plugin indent on
 
 set tags=tags;/
 
-syntax on
 set nocompatible
 set modelines=0
 set tabstop=4
@@ -28,7 +27,6 @@ set laststatus=2
 set nu
 "set undofile
 set gfn=Menlo\ Regular:h12 "font
-colorscheme molokai
 set nocursorline
 
 "adjust match paren
@@ -129,3 +127,8 @@ let g:ctrlsf_position = 'right'
 "emmet
 let g:user_emmet_expandabbr_key = '<c-e>'
 
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
+colorscheme molokai
+syntax on
