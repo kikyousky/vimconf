@@ -1,3 +1,4 @@
+
 filetype off
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
@@ -98,10 +99,6 @@ nnoremap <leader>s :Scratch<cr>
 nnoremap <leader>c :Clam<space>
 vnoremap <leader>c :ClamVisual<space>
 
-augroup filetypedetect 
-    au BufNewFile,BufRead *.nsh setf nsis 
-augroup END 
-
 function! JavaScriptFold()
 	setl foldmethod=syntax
 	setl foldlevelstart=1
@@ -130,5 +127,30 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
+let g:ctrlp_custom_ignore = '\v[\/]((\.(git|hg|svn))|(node_modules))$'
+
 colorscheme molokai
 syntax on
+
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk,utf-16,big5
+
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
+autocmd Filetype yml setlocal ts=2 sts=2 sw=2
+
+set pastetoggle=<leader>p
+
+"vim-go
+au FileType go nmap <leader>gr <Plug>(go-run)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+au FileType go nmap <leader>gc <Plug>(go-coverage)
+au FileType go nmap <Leader>go <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gi <Plug>(go-info)
+au FileType go nmap <Leader>ge <Plug>(go-rename)
+au FileType go nmap <Leader>gd <Plug>(go-def-vertical)
+
+let g:go_fmt_command = "goimports"
+
+let NERDTreeShowHidden=1
